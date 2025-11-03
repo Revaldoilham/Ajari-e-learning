@@ -29,9 +29,9 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
   }
 
   OutlineInputBorder _border(Color color) => OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        borderSide: BorderSide(color: color, width: 1.5),
-      );
+    borderRadius: BorderRadius.circular(8),
+    borderSide: BorderSide(color: color, width: 1.5),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -102,10 +102,15 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                     hintStyle: const TextStyle(color: Color(0xFF6B7280)),
                     filled: true,
                     fillColor: const Color(0xFFFFFFFF),
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 14,
+                    ),
                     border: _border(const Color(0xFFDDDDDD)),
                     enabledBorder: _border(const Color(0xFFDDDDDD)),
-                    focusedBorder: _border(const Color(0xFFF97316)), // orange when focused
+                    focusedBorder: _border(
+                      const Color(0xFFF97316),
+                    ), // orange when focused
                   ),
                 ),
                 const SizedBox(height: 12),
@@ -120,7 +125,10 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                     hintStyle: const TextStyle(color: Color(0xFF6B7280)),
                     filled: true,
                     fillColor: const Color(0xFFFFFFFF),
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 14,
+                    ),
                     border: _border(const Color(0xFFDDDDDD)),
                     enabledBorder: _border(const Color(0xFFDDDDDD)),
                     focusedBorder: _border(const Color(0xFF1665D8)),
@@ -138,7 +146,10 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                     hintStyle: const TextStyle(color: Color(0xFF6B7280)),
                     filled: true,
                     fillColor: const Color(0xFFFFFFFF),
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 14,
+                    ),
                     border: _border(const Color(0xFFDDDDDD)),
                     enabledBorder: _border(const Color(0xFFDDDDDD)),
                     focusedBorder: _border(const Color(0xFF1665D8)),
@@ -158,7 +169,11 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
 
                       if (name.isEmpty || email.isEmpty || password.isEmpty) {
                         // ignore: use_build_context_synchronously
-                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please fill all fields')));
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Please fill all fields'),
+                          ),
+                        );
                         return;
                       }
 
@@ -166,20 +181,32 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                       final existing = await db.getUserByEmail(email);
                       if (existing != null) {
                         // ignore: use_build_context_synchronously
-                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Email already registered')));
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Email already registered'),
+                          ),
+                        );
                         return;
                       }
 
-                      await db.insertUser({'name': name, 'email': email, 'password': password});
+                      await db.insertUser({
+                        'name': name,
+                        'email': email,
+                        'password': password,
+                      });
                       if (!mounted) return;
                       // ignore: use_build_context_synchronously
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Account created')));
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Account created')),
+                      );
                       // ignore: use_build_context_synchronously
                       Navigator.of(context).pop();
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF0D47A1),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(6),
+                      ),
                     ),
                     child: const Text(
                       'CREATE MY ACCOUNT',
@@ -220,7 +247,9 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         onPressed: () {
                           Navigator.of(context).pop(); // go back to sign in
                         },
-                        style: TextButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 24)),
+                        style: TextButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(horizontal: 24),
+                        ),
                         child: const Text(
                           'SIGN IN',
                           style: TextStyle(

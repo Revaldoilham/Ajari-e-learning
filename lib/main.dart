@@ -76,7 +76,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               return GestureDetector(
                 onHorizontalDragUpdate: (details) {
                   // Add some resistance to the drag
-                  _pageController.jumpTo(_pageController.offset - details.delta.dx);
+                  _pageController.jumpTo(
+                    _pageController.offset - details.delta.dx,
+                  );
                 },
                 child: Stack(
                   children: [
@@ -88,9 +90,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ),
                     ),
                     // Blue overlay
-                    Container(
-                      color: Colors.blue.withOpacity(0.7),
-                    ),
+                    Container(color: Colors.blue.withOpacity(0.7)),
                     // Content
                     SafeArea(
                       child: Padding(
@@ -146,9 +146,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             child: ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                    builder: (context) => const LoginScreen(),
-                  ),
+                  MaterialPageRoute(builder: (context) => const LoginScreen()),
                 );
               },
               style: ElevatedButton.styleFrom(
