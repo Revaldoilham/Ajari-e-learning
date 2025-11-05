@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Learning App',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
       home: const OnboardingScreen(),
     );
@@ -89,8 +90,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    // Blue overlay
-                    Container(color: Colors.blue.withOpacity(0.7)),
+                    // Gradient overlay
+                    // Gradient overlay
+                    Container(
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.center,
+                          colors: [
+                            Colors.blue, // sama seperti tombol
+                            Colors.transparent, // berhenti di tengah layar
+                          ],
+                          stops: [0.0, 1.0], // gradasi halus sampai tengah
+                        ),
+                      ),
+                    ),
+
                     // Content
                     SafeArea(
                       child: Padding(
