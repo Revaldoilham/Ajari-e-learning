@@ -1,12 +1,10 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:uas/utils/profile.dart';
+import 'package:uas/utils/api_config.dart';
 
 class ApiAuthService {
-  // Base URL for the Laravel API
-  // Use localhost for web browser
-  // For Android emulator, change to http://10.0.2.2:8000/api
-  static const String baseUrl = 'http://localhost:8000/api';
+  static final String baseUrl = ApiConfig.baseUrl;
 
   String? _token;
 

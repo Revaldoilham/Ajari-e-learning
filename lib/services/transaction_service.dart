@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:uas/utils/api_config.dart';
 
 class TransactionService {
-  final String baseUrl =
-      'http://localhost:8000/api'; // Or http://10.0.2.2:8000/api for Android Emulator
+  final String baseUrl = ApiConfig.baseUrl;
 
   Future<Map<String, dynamic>> createInvoice(
     String token,

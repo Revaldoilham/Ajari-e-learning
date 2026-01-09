@@ -40,7 +40,7 @@
                 </div>
                 <div class="p-6 space-y-5">
                     <div>
-                        <div class="flex justify-between items-center mb-2">
+                        <div class="falex justify-between items-center mb-2">
                             <label class="block text-sm font-semibold text-gray-700">Judul Kursus *</label>
                             <button type="button" id="btn-generate-title"
                                 class="text-xs text-blue-600 hover:text-blue-800 font-bold flex items-center gap-1 px-2 py-1 rounded-md hover:bg-blue-50 transition-all">
